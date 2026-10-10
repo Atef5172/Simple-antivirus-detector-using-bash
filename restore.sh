@@ -10,7 +10,7 @@ fi
 SOURCE_DIR="$1"
 QUARANTINE_DIR="$2"
 
-if [ !-d "$SOURCE_DIR" ] || [ ! -d "$QUARANTINE_DIR" ]; then
+if [ ! -d "$SOURCE_DIR" ] || [ ! -d "$QUARANTINE_DIR" ]; then
     echo "Directories doesnt exist "
     exit 1
 fi 
@@ -24,7 +24,7 @@ while true; do
         [ -f "$file_path" ] && quarantined_files+=("$file_path")
     done
     #check if the quarantined array is empty or not 
-    if [ "${quarantined_files[@]}" -eq 0 ]; then 
+    if [ "${#quarantined_files[@]}" -eq 0 ]; then 
         echo "No malicious files to review."
         exit 0 
     fi
@@ -39,7 +39,7 @@ while true; do
     read -rp "select file by a number: " file_choice
     
     selected_file_path="${quarantined_files[$((file_choice-1))]}"
-    slected_file_name=$(basename "$selected_file_path")
+    selected_file_name=$(basename "$selected_file_path")
     
     echo "-----------------------------------------"
     echo "####Display action menu####"
@@ -52,15 +52,16 @@ while true; do
     if [ "$action_choice" -eq 1 ]; then 
         cp "$selected_file_path" "$SOURCE_DIR/$selected_file_name"
         rm "$selected_file_path"
-        echo "Restored $selected_file_name to $SOURCE_DIR"
+        echo "Restored $selected_file_name to $SOURCE_DIR."
     
     elif [ "$action_choice" -eq 2 ]; then
         rm -f "$selected_file_path"
-        echo "$selected_file_name is permenantly deleted"
+        echo "$selected_file_name is permenantly deleted."
         
     elif [ "$action_choice" -eq 3 ]; then
-       echo "Skipped $selected_file_name"
+       echo "Skipped $selected_file_name."
  
     else 
       echo "Invalid option , Back to the menu"
     fi 
+done
