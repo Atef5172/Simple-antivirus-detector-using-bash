@@ -76,6 +76,17 @@ scan_directory(){
         fi 
     done
 }
+################################################################### handling the first run
+
+# there is no last snapshot so we make the first scan and save the first snapshot
+if [ ! -f "$LAST_INFO" ]; then 
+    scan_directory 
+    ls -l "$SOURCE_DIR" > "$LAST_INFO"
+fi 
+
+
+
+
 
 
 
