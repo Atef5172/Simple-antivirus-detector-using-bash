@@ -104,10 +104,3 @@ while true; do
         ls -l "$SOURCE_DIR" > "$LAST_INFO"
     fi 
 done
-
-
-
-
-
-
-
