@@ -9,6 +9,8 @@ fi
 
 SOURCE_DIR="$1"
 QUARANTINE_DIR="$2"
+WHITELIST_FILE="whitelist.txt"
+touch "$WHITELIST_FILE"
 
 if [ ! -d "$SOURCE_DIR" ] || [ ! -d "$QUARANTINE_DIR" ]; then
     echo "Directories doesnt exist "
@@ -53,6 +55,9 @@ while true; do
         cp "$selected_file_path" "$SOURCE_DIR/$selected_file_name"
         rm "$selected_file_path"
         echo "Restored $selected_file_name to $SOURCE_DIR."
+        if ! grep -qx "$selected_file_name" "$WHITELIST_FILE"; then 
+            echo "$selected_file_name" >> "$WHITELIST_FILE"
+        fi
     
     elif [ "$action_choice" -eq 2 ]; then
         rm -f "$selected_file_path"
