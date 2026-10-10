@@ -18,6 +18,7 @@
 --> get the original file path 
 --> move the file to the source directory 
 --> display message 
+--> add the file to the whitelists so it cant be mallicious again
 
 # IF Permenantly delete
 --> delete the selected file 

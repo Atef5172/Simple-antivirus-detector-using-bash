@@ -20,6 +20,7 @@
 # 5- if snapshots are different 
   # 1- scan the directory 
   # 2- loop through each file inside the source directory 
+  #### check if the file is inside the whitelist file so we will ignore it and head to the next loop
   # 3- check if te file extension is weird 
   # 4- check if the file contains any weird key word if it is not already malicious from rule 1
   # 5- if the file is malicious 
