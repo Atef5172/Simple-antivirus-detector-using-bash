@@ -85,7 +85,18 @@ if [ ! -f "$LAST_INFO" ]; then
 fi 
 
 
-
+#################################################################### polling loop 
+while true; do 
+    sleep "$INTERVAL_SEC" 
+    ls -l "$SOURCE_DIR" > "$NEW_INFO"
+    #cmp --> return 0 if the file matches 
+    # ! cmp --> the files doesnt match 
+    # -s --> silent mode return value with no output
+    if [ ! cmp -s "$NEW_INFO" "$LAST_INFO"]; then
+        scan_directory
+        cp "$NEW_INFO" "$LAST_INFO"
+    fi 
+done
 
 
 
