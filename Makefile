@@ -17,3 +17,6 @@ run-antivirus : prepare
 	./antivirus.sh $(SOURCE_DIR) $(MALICIOUS_DIR) $(INTERVAL_SEC)
 restore : prepare 
 	./restore.sh $(SOURCE_DIR) $(MALICIOUS_DIR)
+	
+clear :
+	rm -f directory-info.last directory-info.new whitelsit.txt
