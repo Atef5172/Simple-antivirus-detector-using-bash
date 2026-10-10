@@ -19,4 +19,4 @@ restore : prepare
 	./restore.sh $(SOURCE_DIR) $(MALICIOUS_DIR)
 	
 clear :
-	rm -f directory-info.last directory-info.new whitelsit.txt
+	rm -f directory-info.last directory-info.new whitelist.txt
