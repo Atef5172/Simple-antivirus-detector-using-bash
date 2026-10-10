@@ -4,7 +4,7 @@
 # 1- read the source directory 
 # 2- read the quarantine directory 
 # 3- read interval in seconds
-# 4- check if arguments are invalid --> display error and exit 
+# 4- check if arguments number are invalid --> display error and exit 
 # 5- if quarantine directory doesnt exist --> create one 
 
 # SECOND PART
@@ -20,8 +20,8 @@
 # 5- if snapshots are different 
   # 1- scan the directory 
   # 2- loop through each file inside the source directory 
-  # 3- check if te file extension is weird
-  # 4- check if the file contains any weird key word
+  # 3- check if te file extension is weird 
+  # 4- check if the file contains any weird key word if it is not already malicious from rule 1
   # 5- if the file is malicious 
         # 1- display in the terminal "file x is malicious"
         # 2- copy the file to the Quarantine directory 
