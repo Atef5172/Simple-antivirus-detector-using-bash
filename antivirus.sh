@@ -20,6 +20,8 @@ INTERVAL_SEC="$3"
 # 3/ Global variables to store snapshpts
 LAST_INFO="directory-info.last"
 NEW_INFO="directory-info.new"
+WHITELIST_FILE="whitelist.txt"
+touch "$WHITELIST_FILE"
 
 # 3/ checks if the source directory exists or not 
 # ! -d --> return true if directory doesnt exist 
@@ -47,6 +49,10 @@ scan_directory(){
         local file_name 
         local is_malicious=0
         file_name=$(basename "$file_path")
+        
+        # check if the file name exists in the whitelist or not 
+        if grep -qx "$filename" "$WHITELIST_FILE"; then 
+            continue
         
         #check if the file anme contain a flagged extension 
         if [[ "$file_name" == *.exe || \
