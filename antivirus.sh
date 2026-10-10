@@ -51,8 +51,9 @@ scan_directory(){
         file_name=$(basename "$file_path")
         
         # check if the file name exists in the whitelist or not 
-        if grep -qx "$filename" "$WHITELIST_FILE"; then 
+        if grep -qx "$file_name" "$WHITELIST_FILE"; then 
             continue
+        fi
         
         #check if the file anme contain a flagged extension 
         if [[ "$file_name" == *.exe || \

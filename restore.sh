@@ -61,7 +61,7 @@ while true; do
     
     elif [ "$action_choice" -eq 2 ]; then
         rm -f "$selected_file_path"
-        echo "$selected_file_name is permenantly deleted."
+        echo "$selected_file_name permenantly deleted."
         
     elif [ "$action_choice" -eq 3 ]; then
        echo "Skipped $selected_file_name."
