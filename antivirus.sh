@@ -23,7 +23,7 @@ NEW_INFO="directory-info.new"
 
 # 3/ checks if the source directory exists or not 
 # ! -d --> return true if directory doesnt exist 
-if [ ! -d $SOURCE_DIR ]; then 
+if [ ! -d "$SOURCE_DIR" ]; then 
     echo "Source directory doesnt exit "
     exit 1
 fi 
@@ -94,7 +94,7 @@ while true; do
     # -s --> silent mode return value with no output
     if ! cmp -s "$NEW_INFO" "$LAST_INFO"; then
         scan_directory
-        cp "$NEW_INFO" "$LAST_INFO"
+        ls -l "$SOURCE_DIR" > "$LAST_INFO"
     fi 
 done
 
