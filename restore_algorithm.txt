@@ -1,0 +1,29 @@
+# Brainstorming the algorithm
+
+# define the path of the source directory 
+# define the path of the malicious directory 
+# check if the quarantine directory has any file 
+# if it doesnt contain any file --> display message and exit '
+# if the quarantine directory is not empty 
+# display message with all the files with number for each file 
+# user select file by the number corresponding to the file 
+# validate user number selection 
+# display available options to do with the file 
+--> Restore
+--> permenetaly delete
+--> leave the file unchanged
+# user select an action 
+
+# IF restore 
+--> get the original file path 
+--> move the file to the source directory 
+--> display message 
+
+# IF Permenantly delete
+--> delete the selected file 
+--> display a message 
+
+# IF leave unchanged 
+--> keep the file in quanrantine 
+--> display a message 
+
