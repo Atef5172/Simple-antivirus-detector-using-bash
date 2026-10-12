@@ -14,7 +14,7 @@ create-some-files: prepare
 
 
 run-antivirus : prepare
-	./antivirus.sh $(SOURCE_DIR) $(MALICIOUS_DIR) $(INTERVAL_SEC)
+	./antivirusd.sh $(SOURCE_DIR) $(MALICIOUS_DIR) $(INTERVAL_SEC)
 restore : prepare 
 	./restore.sh $(SOURCE_DIR) $(MALICIOUS_DIR)
 	
